@@ -47,9 +47,19 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # The floor is declared in composer.json; test it, or "PHP 8.1 or
+        # The floor is declared in composer.json; test it, or "PHP 8.2 or
         # newer" is an aspiration rather than a fact.
-        php: ['8.1', '8.2', '8.3', '8.4']
+        #
+        # 8.1 was dropped on 5 Sept 2026, and not to make the build green.
+        # On 8.1 the only usable test harness is orchestra/testbench ^8, which
+        # pins laravel/framework to 10.x releases that Composer now refuses to
+        # install because they carry published security advisories. testbench
+        # ^9 and ^10 require PHP ^8.2. So there is no combination of PHP 8.1
+        # and Laravel 10 that installs without disabling advisory blocking —
+        # and a fraud-prevention package is the last thing that should be
+        # asking anyone to do that. PHP 8.1 and Laravel 10 are both past
+        # security support; the floor now says so.
+        php: ['8.2', '8.3', '8.4']
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
 
