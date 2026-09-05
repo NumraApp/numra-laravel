@@ -1,0 +1,44 @@
+{
+  "name": "numra/laravel",
+  "description": "Numra for Laravel — risk checks, outcome reporting and verified webhooks, wired up with one route macro.",
+  "type": "library",
+  "license": "MIT",
+  "homepage": "https://numra.ma",
+  "keywords": ["numra", "laravel", "cod", "fraud", "morocco", "risk"],
+  "authors": [
+    { "name": "Numra", "homepage": "https://numra.ma", "role": "Maintainer" }
+  ],
+  "support": {
+    "issues": "https://github.com/NumraApp/numra-laravel/issues",
+    "source": "https://github.com/NumraApp/numra-laravel",
+    "docs": "https://numra.ma/docs"
+  },
+  "require": {
+    "php": ">=8.1",
+    "numra/numra-php": "^1.0",
+    "illuminate/support": "^10.0 || ^11.0 || ^12.0",
+    "illuminate/http": "^10.0 || ^11.0 || ^12.0"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^8.0 || ^9.0 || ^10.0"
+  },
+  "autoload": {
+    "psr-4": { "Numra\\Laravel\\": "src/" }
+  },
+  "autoload-dev": {
+    "psr-4": { "Numra\\Laravel\\Tests\\": "tests/" }
+  },
+  "extra": {
+    "laravel": {
+      "providers": ["Numra\\Laravel\\NumraServiceProvider"],
+      "aliases": { "Numra": "Numra\\Laravel\\Facades\\Numra" }
+    },
+    "numra": {
+      "release-order": "numra/numra-php must be tagged and on Packagist before this package is tagged. There is no path repository any more — `composer install` here resolves numra/numra-php from Packagist and nowhere else, so tagging this first gives every installer an unsolvable requirement."
+    }
+  },
+  "scripts": { "test": "phpunit" },
+  "config": { "sort-packages": true },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
