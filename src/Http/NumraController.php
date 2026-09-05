@@ -14,7 +14,7 @@ use Numra\Laravel\Events\NumraWebhookReceived;
  *
  * Everything that could differ between frameworks — deny by default, the
  * browser-facing subset, error translation — lives in Numra\Handlers, which is
- * the PHP twin of createHandlers in @numra/core. This controller turns a
+ * the PHP twin of createHandlers in @getnumra/core. This controller turns a
  * Request into an array and an array into a JsonResponse, and that is all.
  */
 final class NumraController
